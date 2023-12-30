@@ -1,0 +1,10 @@
+.food {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  /* justify-content: center; */
+  margin: 40px auto;
+  gap: 30px;
+  margin-bottom: 40px;
+  width: 80%;
+}

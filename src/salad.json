@@ -1,0 +1,42 @@
+[
+  {
+    "id": 200,
+    "image": "fattous.webp",
+    "name": "Fattous salad",
+    "desc": "Fattous is a levantine salad composed of mixed green and toasted of fried khubz or flatbread.",
+    "price": 6000,
+    "oldPrice": 6500,
+    "quantity": 1,
+    "review": 40
+  },
+  {
+    "id": 201,
+    "image": "greek salad.webp",
+    "name": "Greek salad",
+    "desc": "Greek salad consist of tomotoes, cucumber,olives, feta and onions. it's lightly dressed with olive oil,salt,pepper, and oregano",
+    "price": 5500,
+    "oldPrice": 6000,
+    "quantity": 1,
+    "review": 80
+  },
+  {
+    "id": 202,
+    "image": "Leafy green salad.webp",
+    "name": "Leafy green salad",
+    "desc": "Green salad is a general term that can offer to any tossed salad made with greens such as iceberg lettuce, arugula and spinach.",
+    "price": 5000,
+    "oldPrice": 5500,
+    "quantity": 1,
+    "review": 60
+  },
+  {
+    "id": 203,
+    "image": "images.jpg",
+    "name": "Fattous salad",
+    "desc": "Fattous is a levantine salad composed of mixed green and toasted of fried khubz or flatbread.",
+    "price": 6500,
+    "oldPrice": 7000,
+    "quantity": 1,
+    "review": 10
+  }
+]

@@ -1,0 +1,23 @@
+:root {
+  --color-black-think: #162f43;
+  --color-black-lighter: #191919;
+  --color-white: #ffff;
+}
+.container {
+  background-color: var(--color-white);
+  padding: 40px 30px;
+  margin: 40px auto 100px auto;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+h1 {
+  color: var(--color-black-think);
+  font-size: 20px;
+}
+p {
+  color: var(--color-black-lighter);
+  margin: 10px 0px;
+  font-size: 14.5px;
+  line-height: 1.2;
+}

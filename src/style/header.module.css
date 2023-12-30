@@ -1,0 +1,95 @@
+:root {
+  --primary-color: #ff922b;
+  --secondary-color: rgb(151, 2, 2);
+  --grey-color: #dbdbdb;
+  --search-color: #333;
+  --color-white: #ffff;
+  --color-black-think: #162f43;
+  --color-black-light: #191919;
+  --box-shadow: rgba(0,0,0,0.1)
+  --hover-btn: #fb902a;
+}
+.header {
+  background-color: var(--color-white);
+  width: 100%;
+  padding: 10px 20px 20px 20px;
+  box-shadow: var(--box-shadow); 
+  z-index: 9999;
+  position: fixed;
+  top: 0px;
+}
+.headerContent {
+  margin: auto;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.logo img {
+  width: 50px;
+}
+.logo h1 {
+  font-family: sans-serif;
+  font-size: 24px;
+  margin: 0px;
+  color: var(--primary-color);
+}
+.search input {
+  outline: none;
+  width: 600px;
+  padding: 15px;
+  border: 1px solid var(--grey-color);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-size: 14px;
+  color: var(--color-black-light);
+}
+.search input::placeholder {
+  color: var(--search-color);
+  font-size: 14px;
+}
+.search button {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 13px 15px 15px 15px;
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  outline: none;
+  cursor: pointer;
+}
+.search button:hover {
+  background-color: var(--hover-btn);
+  transition: 0.5s ease;
+}
+.menu {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  cursor: pointer;
+}
+.totalCart {
+  background-color: var(--primary-color);
+  color: white;
+  position: absolute;
+  top: 30px;
+  right: 74px;
+  text-align: center;
+  padding: 1px 4px;
+  font-size: 12px;
+  border-radius: 100%;
+}
+.cart {
+  background-color: #ff922b;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  color: var(--color-white);
+}

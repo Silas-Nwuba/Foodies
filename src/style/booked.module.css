@@ -1,0 +1,69 @@
+:root {
+  --color-white: #ffff;
+  --color-black-think: #162f43;
+  --color-black-light: #191919;
+  --box-shadow: rgba(0, 0, 0, 0.1);
+}
+
+.booked {
+  background-color: var(--color-white);
+  box-shadow: var(--box-shadow);
+  padding: 20px 15px;
+  width: 400px;
+  height: 100vh;
+  right: 0;
+  top: 0;
+  position: fixed;
+  z-index: 20000;
+  transition: all 1s ease;
+}
+.bookedContainer {
+  margin-top: 10px;
+  width: 370px;
+  height: 500px;
+  overflow: auto;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #cccc;
+  padding-bottom: 10px;
+}
+h1 {
+  font-size: 20px;
+}
+.cancel {
+  display: flex;
+  align-items: center;
+}
+.bookedContent {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 5px;
+  margin: 15px 0px;
+  cursor: pointer;
+}
+.bookedContent:hover {
+  background-color: #fafafaee;
+}
+.booked img {
+  width: 50px;
+  height: 50px;
+}
+.booked h3 {
+  font-size: 0.95rem;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: var(--color-black-think);
+}
+.booked p {
+  font-size: 14px;
+  color: var(--color-black-light);
+}
+.booked h4 {
+  font-size: 14px;
+  color: var(--color-black-light);
+  font-weight: 300;
+}

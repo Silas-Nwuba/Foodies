@@ -1,0 +1,51 @@
+:root {
+  --color-black-think: #162f43;
+  --color-black-lighter: #3c3d3d;
+  --box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  --color-white: #ffff;
+  --primary-color: #ff922b;
+}
+.foodList {
+  width: 22.7%;
+  background-color: var(--color-white);
+  cursor: pointer;
+}
+.foodList img {
+  width: 100%;
+  background-size: cover;
+}
+
+.foodList h3 {
+  color: var(--color-black-lighter);
+  font-size: 0.9375rem;
+  font-weight: 400;
+}
+.price {
+  color: rgb(151, 2, 2);
+}
+.foodList:hover {
+  border: none;
+  box-shadow: var(--box-shadow);
+  transition: 0.5s ease;
+}
+.order {
+  border: 1px solid var(--primary-color);
+  padding: 10px;
+  margin: 10px auto;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  width: 210px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 25px;
+  color: #101010;
+  font-size: 1rem;
+  background-color: white;
+}
+.order:hover {
+  background-color: var(--primary-color);
+  color: var(--color-white);
+  transition: all 0.2s ease;
+}

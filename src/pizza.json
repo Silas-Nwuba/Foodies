@@ -1,0 +1,82 @@
+[
+  {
+    "id": 100,
+    "image": "chicken tikka.jpeg",
+    "name": "Chicken Tikka",
+    "desc": "Chicken tikka pizza feature marinated and spices chicken tikka, onions",
+    "price": 1300,
+    "oldPrice": 2000,
+    "quantity": 1,
+    "review": 18
+  },
+  {
+    "id": 101,
+    "image": "Hawaiian.jpeg",
+    "name": "Hawaiina",
+    "desc": "Hawaiian pizza conbine sweet adn savory flavour with pineanple,chunks and tomato",
+    "price": 1500,
+    "oldPrice": 1700,
+    "quantity": 1,
+    "review": 40
+  },
+  {
+    "id": 102,
+    "image": "Homemmade pepperoni.jpg",
+    "name": "Homemade Pepperoni",
+    "desc": "Homemade pepperoni is crusted with tomato sauce have never been easier",
+    "price": 7000,
+    "oldPrice": 8000,
+    "quantity": 1,
+    "review": 16
+  },
+  {
+    "id": 103,
+    "image": "classic cheese.jpeg",
+    "name": "Classic Cheese",
+    "desc": "Cheese pizza recipe make a chewy crust,homemade tomato sauce ",
+    "price": 550,
+    "oldPrice": 700,
+    "quantity": 1,
+    "review": 8
+  },
+  {
+    "id": 104,
+    "image": "Mediterrinean.jpeg",
+    "name": "Mediterrinean",
+    "desc": "Mediterrinean pizza is a combination of olives,sundried,feta cheese and fresh herb create a vibrant and tantalizng taste",
+    "price": 1000,
+    "oldPrice": 1500,
+    "quantity": 1,
+    "review": 23
+  },
+  {
+    "id": 105,
+    "image": "spinachi.jpeg",
+    "name": "Spinachi",
+    "desc": "Spinachi pizza is a fantastice pizza conbine with tabgy fate cheese create a harmonious and satisfying taste",
+    "price": 1000,
+    "oldPrice": 1500,
+    "quantity": 1,
+    "review": 20
+  },
+  {
+    "id": 106,
+    "image": "verggie supreme.jpeg",
+    "name": "Veggie Supreme",
+    "desc": "Vegetable pizza offer a colorful medley of fresh vegetable such as bell pepper,onions,olives,mushroom and tomatoes",
+    "price": 5000,
+    "oldPrice": 5500,
+    "quantity": 1,
+    "review": 10
+  },
+  {
+    "id": 107,
+    "image": "bbq chicken.jpeg",
+    "name": "BBQ Chicken",
+    "desc": "Bbq chicken pizza is a must-try grilled chicken coated in barbecue sauce",
+    "price": 4000,
+    "oldPrice": 4500,
+    "quantity": 1,
+    "review": 12
+  }
+]

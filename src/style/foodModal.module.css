@@ -1,0 +1,84 @@
+:root {
+  --color-white: #ffff;
+  --primary-color: #ff922b;
+  --quantity-border-color: #eeee;
+  --hover-btn: #fa7e09;
+}
+.container {
+  background-color: var(--color-white);
+  width: 80%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20000;
+  padding: 20px 30px 10px 30px;
+  border-radius: 3px;
+}
+.product {
+  display: flex;
+  gap: 23px;
+  margin: 50px 0px;
+}
+.product img {
+  max-width: 300px;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+.productItem {
+  margin-top: 0;
+}
+
+.cartBtn {
+  background-color: var(--primary-color);
+  color: var(--color-white);
+  border: none;
+  padding: 15px 20px;
+  font-size: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.cartBtn:hover {
+  background-color: var(--hover-btn);
+  transition: transform 0.5s ease;
+}
+.foodContent {
+  width: auto;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.foodContent::-webkit-scrollbar {
+  width: 5px;
+}
+.foodContent::-webkit-scrollbar-thumb {
+  background-color: #a0a0a0;
+  border-radius: 5px;
+}
+.foodContent::-webkit-scrollbar-thumb:hover {
+  background-color: #a0a0a0;
+}
+.foodContent::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 2px solid white;
+  border-bottom: transparent;
+  animation: spinner 4s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0%);
+  }
+  100% {
+    transform: rotate(100%);
+  }
+}
