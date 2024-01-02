@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "./Logo";
 import Search from "./Search";
 import Menu from "./Menu";
@@ -17,8 +17,11 @@ import skeletonStyle from "../style/skeleton.module.css";
 import Booked from "./Booked";
 import BookedList from "./BookedList";
 import FoodModal from "./FoodModal";
+import FoodMenu from "./FoodMenu";
+import HeroSection from "./HeroSection";
 
 const App = () => {
+  const local_key = "bookedFood";
   const [food, setFood] = useState([]);
   const [isFoodModalOpen, setFoodModalOpen] = useState(false);
   const [isOpenBooked, setOpenBooked] = useState(false);
@@ -26,33 +29,13 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [selectedFood, setSelectedFood] = useState(null);
   const [query, setQuery] = useState("");
-  const [bookMark, setBookMark] = useState([]);
+  const [bookMark, setBookMark] = useState(() => {
+    const storedData = JSON.parse(localStorage.getItem(local_key));
+    return storedData ? storedData : [];
+  });
   const [isBookedDetail, setBookedDetail] = useState(false);
-  const bookedDiv = useRef(null);
-  useEffect(() => {
-    const fetchFood = async () => {
-      setLoading(true);
-      setErrorMessage("");
-      try {
-        const response = await fetch(
-          `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
-        );
-        const data = await response.json();
-        if (data.meals === null) throw new Error("not match");
-        else setFood(data.meals);
-      } catch (err) {
-        setErrorMessage(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchFood();
-  }, [query]);
-
   const handleOpenFoodModal = (id) => {
     const selectedFoodObj = food.find((item) => item.idMeal === id);
-    console.log(selectedFoodObj);
     setSelectedFood(selectedFoodObj);
     setFoodModalOpen((isOpen) => !isOpen);
   };
@@ -62,11 +45,21 @@ const App = () => {
     setBookedDetail(false);
   };
   const handleAddBookMark = (newBookedItem) => {
-    setBookMark((booked) => [...booked, newBookedItem]);
-    toast.success("Food successfully booked", {
-      position: toast.POSITION.TOP_RIGHT,
-      toastId: "success1",
-    });
+    const bookedItem = bookMark.find(
+      (booked) => booked.idMeal === newBookedItem.idMeal
+    );
+    if (!bookedItem) {
+      setBookMark([...bookMark, newBookedItem]);
+      toast.success("Food successfully booked", {
+        position: toast.POSITION.TOP_RIGHT,
+        toastId: "success1",
+      });
+    } else {
+      toast.warning("Food is already booked", {
+        position: toast.POSITION.TOP_RIGHT,
+        toastId: "warning1",
+      });
+    }
   };
 
   const handleOpenBooked = () => {
@@ -87,15 +80,72 @@ const App = () => {
     setBookedDetail(true);
   };
 
+  const handleDeleteAll = () => {
+    setBookMark([]);
+  };
+  useEffect(() => {
+    const controller = new AbortController();
+    const fetchFood = async () => {
+      setLoading(true);
+      setErrorMessage("");
+      try {
+        const response = await fetch(
+          `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`,
+          { signal: controller.signal }
+        );
+        if (!response.ok) {
+          setLoading(false);
+        }
+        const data = await response.json();
+        if (data.meals === null) throw new Error("not match");
+        else {
+          setFood(data.meals);
+          setErrorMessage("");
+          setLoading(false);
+        }
+      } catch (err) {
+        if (err.name !== "AbortError") setErrorMessage(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchFood();
+    return () => {
+      controller.abort();
+    };
+  }, [query]);
+
+  useEffect(() => {
+    localStorage.setItem(local_key, JSON.stringify(bookMark));
+  }, [bookMark]);
+
+  useEffect(() => {
+    const callback = (e) => {
+      if (e.code === "Escape") {
+        handleCloseFoodModal();
+      }
+    };
+    document.addEventListener("keydown", callback);
+    return () => document.removeEventListener("keydown", callback);
+  }, []);
+
   return (
     <div className={style.container}>
       <Header>
         <Logo />
         <Search query={query} setQuery={setQuery} />
-        <Menu onClickBookMark={handleOpenBooked} bookedDiv={bookedDiv} />
+        <Menu
+          onClickBookMark={handleOpenBooked}
+          itemCount={bookMark !== null ? bookMark.length : 0}
+        />
       </Header>
+      <HeroSection />
       {isOpenBooked && (
-        <Booked item={bookMark.length} handleCloseBooked={handleCloseBooked}>
+        <Booked
+          item={bookMark !== null ? bookMark.length : 0}
+          handleCloseBooked={handleCloseBooked}
+          onDeleteAll={handleDeleteAll}
+        >
           {bookMark.map((item) => (
             <BookedList
               key={item.idMeal}
@@ -109,28 +159,32 @@ const App = () => {
       {isOpenBooked && <Backdrop closeModal={handleCloseBooked} />}
 
       <Main>
-        <About />
-
         {isLoading && (
-          <div className={skeletonStyle.container}>
-            <SkeletonLoadingSpinner />
-            <SkeletonLoadingSpinner />
-            <SkeletonLoadingSpinner />
-            <SkeletonLoadingSpinner />
-          </div>
+          <>
+            <FoodMenu />
+            <div className={skeletonStyle.container}>
+              <SkeletonLoadingSpinner />
+              <SkeletonLoadingSpinner />
+              <SkeletonLoadingSpinner />
+              <SkeletonLoadingSpinner />
+            </div>
+          </>
         )}
         {!isLoading && !errorMessage && (
-          <Food>
-            {food.map((item, id) => (
-              <FoodList
-                item={item}
-                id={id}
-                key={item.idMeal}
-                showFoodModal={handleOpenFoodModal}
-                closeFoodModal={handleCloseFoodModal}
-              />
-            ))}
-          </Food>
+          <>
+            <FoodMenu />
+            <Food>
+              {food.map((item, id) => (
+                <FoodList
+                  item={item}
+                  id={id}
+                  key={item.idMeal}
+                  showFoodModal={handleOpenFoodModal}
+                  closeFoodModal={handleCloseFoodModal}
+                />
+              ))}
+            </Food>
+          </>
         )}
         {errorMessage && <ErrorMessage message={errorMessage} />}
       </Main>

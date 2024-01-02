@@ -1,0 +1,31 @@
+import React, { useEffect } from "react";
+import style from "../style/heroSection.module.css";
+import Aos from "aos";
+import "aos/dist/aos.css";
+
+const HeroSection = () => {
+  useEffect(() => {
+    Aos.init();
+  });
+
+  return (
+    <div className={style.heroSection}>
+      <img src="../image/pexels-rajesh-tp-1600727.jpg" alt="background" />
+
+      <div
+        className={style.content}
+        data-aos="fade-up"
+        data-aos-anchor-placement="bottom-bottom"
+      >
+        <h1>Discover Simple,Delicious, And Reliable Food Recipe</h1>
+        <p>
+          Home of all kinds of delicious food we are available anytime to serve
+          our esteem customer.
+        </p>
+        <button>Read more</button>
+      </div>
+    </div>
+  );
+};
+
+export default HeroSection;

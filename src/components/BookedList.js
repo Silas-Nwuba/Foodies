@@ -5,8 +5,11 @@ import style from "../style/booked.module.css";
 const BookedList = ({ item, onDelete, onBookedDetail }) => {
   const { idMeal, strMealThumb, strMeal, strCategory } = item;
   return (
-    <div className={style.bookedContent} onClick={() => onBookedDetail(idMeal)}>
-      <span style={{ display: "flex", gap: 12 }}>
+    <div className={style.bookedContent}>
+      <span
+        style={{ display: "flex", gap: 12 }}
+        onClick={() => onBookedDetail(idMeal)}
+      >
         <img src={strMealThumb} alt={strMeal} />
         <span>
           <h3>{strMeal}</h3>

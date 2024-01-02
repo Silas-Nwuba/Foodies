@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from "../style/foodModal.module.css";
 import { FaTimes } from "react-icons/fa";
 
@@ -9,26 +9,30 @@ const FoodModal = ({
   onBookMark,
   onClickBooked,
 }) => {
+  useEffect(() => {
+    if (selectedFood.strMeal === null) return;
+    document.title = `Foodies | ${selectedFood.strMeal}`;
+    return () => {
+      document.title = "Foodies";
+    };
+  }, [selectedFood.strMeal]);
+
   if (!errorMessage) {
     return (
       <div className={style.container}>
-        <FaTimes
-          style={{ float: "right", fontSize: "18px", cursor: "pointer" }}
-          onClick={closeFoodModal}
-        />
         <div className={style.product}>
           <img
             src={`${selectedFood.strMealThumb}`}
             alt={selectedFood.strMeals}
           />
-          <div className={style.selectedFood}>
-            <div className={style.foodContent}>
+          <div className={style.foodContent}>
+            <div>
               <h3>{selectedFood.strMeal}</h3>
               <p> Category - {selectedFood.strCategory} </p>
               <p
                 style={{
                   textAlign: "justify",
-                  lineHeight: 1.3,
+                  lineHeight: 1.8,
                   fontSize: 16,
                 }}
               >
@@ -36,14 +40,21 @@ const FoodModal = ({
               </p>
             </div>
             {!onClickBooked ? (
-              <button
-                className={style.cartBtn}
-                onClick={() => onBookMark(selectedFood)}
-              >
-                Add to Bookmark
-              </button>
+              <span className={style.footer}>
+                <button
+                  className={style.cartBtn}
+                  onClick={() => onBookMark(selectedFood)}
+                >
+                  Add to Bookmark
+                </button>
+                <button className={style.close} onClick={closeFoodModal}>
+                  Close
+                </button>
+              </span>
             ) : (
-              ""
+              <button className={style.close} onClick={closeFoodModal}>
+                Close
+              </button>
             )}
           </div>
         </div>

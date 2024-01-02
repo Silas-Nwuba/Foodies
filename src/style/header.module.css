@@ -6,14 +6,16 @@
   --color-white: #ffff;
   --color-black-think: #162f43;
   --color-black-light: #191919;
-  --box-shadow: rgba(0,0,0,0.1)
+  --box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
   --hover-btn: #fb902a;
 }
 .header {
   background-color: var(--color-white);
   width: 100%;
   padding: 10px 20px 20px 20px;
-  box-shadow: var(--box-shadow); 
+  box-shadow: var(--box-shadow);
   z-index: 9999;
   position: fixed;
   top: 0px;
@@ -92,4 +94,12 @@
   position: absolute;
   top: 0;
   color: var(--color-white);
+}
+.count::before {
+  content: 0;
+  background-color: var(--secondary-color);
+  padding: 2px 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
