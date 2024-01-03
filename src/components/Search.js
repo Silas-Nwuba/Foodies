@@ -1,25 +1,19 @@
 import React, { useEffect, useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 import style from "../style/header.module.css";
+import { useKey } from "../customHook/useKey";
 const Search = ({ query, setQuery }) => {
   const inputEl = useRef(null);
   const handleSearchFood = (e) => {
     e.preventDefault();
     setQuery(query);
   };
-
-  useEffect(() => {
-    function focusSearch(e) {
-      if (e.code === "Enter") {
-        inputEl.current.focus();
-        setQuery("");
-      }
-    }
-    document.addEventListener("keypress", focusSearch);
-    return () => {
-      document.removeEventListener("keypress", focusSearch);
-    };
+  useKey("Enter", function () {
+    if (document.activeElement === inputEl.current) return;
+    inputEl.current.focus();
+    setQuery("");
   });
+
   return (
     <form className={style.search} onSubmit={handleSearchFood}>
       <input

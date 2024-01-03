@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Logo from "./Logo";
 import Search from "./Search";
 import Menu from "./Menu";
 import Header from "./Header";
-import About from "./About";
 import Food from "./Food";
 import Footer from "./Footer";
 import Backdrop from "./Backdrop";
@@ -19,20 +18,17 @@ import BookedList from "./BookedList";
 import FoodModal from "./FoodModal";
 import FoodMenu from "./FoodMenu";
 import HeroSection from "./HeroSection";
+import { useFetch } from "../customHook/useFetch";
+import { useLocalStorage } from "../customHook/useLocalStorage";
+import { useKey } from "../customHook/useKey";
 
 const App = () => {
   const local_key = "bookedFood";
-  const [food, setFood] = useState([]);
   const [isFoodModalOpen, setFoodModalOpen] = useState(false);
   const [isOpenBooked, setOpenBooked] = useState(false);
-  const [isLoading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
   const [selectedFood, setSelectedFood] = useState(null);
   const [query, setQuery] = useState("");
-  const [bookMark, setBookMark] = useState(() => {
-    const storedData = JSON.parse(localStorage.getItem(local_key));
-    return storedData ? storedData : [];
-  });
+
   const [isBookedDetail, setBookedDetail] = useState(false);
   const handleOpenFoodModal = (id) => {
     const selectedFoodObj = food.find((item) => item.idMeal === id);
@@ -83,51 +79,10 @@ const App = () => {
   const handleDeleteAll = () => {
     setBookMark([]);
   };
-  useEffect(() => {
-    const controller = new AbortController();
-    const fetchFood = async () => {
-      setLoading(true);
-      setErrorMessage("");
-      try {
-        const response = await fetch(
-          `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`,
-          { signal: controller.signal }
-        );
-        if (!response.ok) {
-          setLoading(false);
-        }
-        const data = await response.json();
-        if (data.meals === null) throw new Error("not match");
-        else {
-          setFood(data.meals);
-          setErrorMessage("");
-          setLoading(false);
-        }
-      } catch (err) {
-        if (err.name !== "AbortError") setErrorMessage(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchFood();
-    return () => {
-      controller.abort();
-    };
-  }, [query]);
 
-  useEffect(() => {
-    localStorage.setItem(local_key, JSON.stringify(bookMark));
-  }, [bookMark]);
-
-  useEffect(() => {
-    const callback = (e) => {
-      if (e.code === "Escape") {
-        handleCloseFoodModal();
-      }
-    };
-    document.addEventListener("keydown", callback);
-    return () => document.removeEventListener("keydown", callback);
-  }, []);
+  const { food, isLoading, errorMessage } = useFetch(query);
+  const { bookMark, setBookMark } = useLocalStorage(local_key, []);
+  useKey("Escape", handleCloseFoodModal);
 
   return (
     <div className={style.container}>
