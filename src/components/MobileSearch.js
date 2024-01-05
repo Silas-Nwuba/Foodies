@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 import style from "../style/header.module.css";
 import { useKey } from "../customHook/useKey";
-const Search = ({ query, setQuery }) => {
+const MobileSearch = ({ query, setQuery }) => {
   const inputEl = useRef(null);
   const handleSearchFood = (e) => {
     e.preventDefault();
@@ -15,7 +15,7 @@ const Search = ({ query, setQuery }) => {
   });
 
   return (
-    <form className={style.search} onSubmit={handleSearchFood}>
+    <form className={style.searchmobile} onSubmit={handleSearchFood}>
       <input
         type="text"
         placeholder="Search for all kinds of food.."
@@ -29,4 +29,4 @@ const Search = ({ query, setQuery }) => {
     </form>
   );
 };
-export default Search;
+export default MobileSearch;

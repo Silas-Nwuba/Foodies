@@ -3,7 +3,20 @@
   flex-wrap: wrap;
   align-items: center;
   margin: 40px auto;
+  justify-content: center;
   gap: 30px;
   margin-bottom: 40px;
-  width: 80%;
+  width: 90%;
+}
+@media (max-width: 768px) {
+  .food {
+    justify-content: center;
+    width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  .food {
+    justify-content: center;
+    width: 90%;
+  }
 }

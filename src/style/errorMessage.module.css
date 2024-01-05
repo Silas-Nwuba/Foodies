@@ -2,6 +2,7 @@
   --color-black-think: #162f43;
   --color-black-lighter: #191919;
   --color-white: #ffff;
+  --box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.12);
 }
 .container {
   background-color: var(--color-white);
@@ -10,6 +11,7 @@
   max-width: 400px;
   width: 100%;
   text-align: center;
+  box-shadow: var(--box-shadow);
 }
 h1 {
   color: var(--color-black-think);
@@ -20,4 +22,9 @@ p {
   margin: 10px 0px;
   font-size: 14.5px;
   line-height: 1.2;
+}
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+  }
 }

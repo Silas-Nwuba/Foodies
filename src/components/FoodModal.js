@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import style from "../style/foodModal.module.css";
-import { FaTimes } from "react-icons/fa";
+import { FaTimes, FaBookmark } from "react-icons/fa";
+import { Bookmark } from "react-bootstrap-icons";
 
 const FoodModal = ({
   closeFoodModal,
@@ -42,10 +43,16 @@ const FoodModal = ({
             {!onClickBooked ? (
               <span className={style.footer}>
                 <button
-                  className={style.cartBtn}
+                  className={style.mobile}
                   onClick={() => onBookMark(selectedFood)}
                 >
-                  Add to Bookmark
+                  <FaBookmark style={{ fontSize: 25, color: "white" }} />
+                </button>
+                <button
+                  className={style.desktop}
+                  onClick={() => onBookMark(selectedFood)}
+                >
+                  Add To Bookmark
                 </button>
                 <button className={style.close} onClick={closeFoodModal}>
                   Close

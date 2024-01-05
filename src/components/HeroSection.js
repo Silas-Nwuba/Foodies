@@ -15,7 +15,7 @@ const HeroSection = () => {
       <div
         className={style.content}
         data-aos="fade-up"
-        data-aos-anchor-placement="bottom-bottom"
+        data-aos-duration="3000"
       >
         <h1>Discover Simple,Delicious, And Reliable Food Recipe</h1>
         <p>

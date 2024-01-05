@@ -6,14 +6,7 @@ const Menu = ({ onClickBookMark, itemCount }) => {
   return (
     <div className={style.menu}>
       <>
-        <span
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 15,
-            cursor: "defaults",
-          }}
-        >
+        <span className={style.contactInfo}>
           <Telephone style={{ color: " rgb(151, 2, 2)", fontSize: 25 }} />
           <span style={{ lineHeight: 0.7 }}>
             <p style={{ fontSize: 16, fontWeight: 500 }}>Call us now</p>
@@ -36,9 +29,11 @@ const Menu = ({ onClickBookMark, itemCount }) => {
             backgroundColor: "rgb(151, 2, 2)",
             borderRadius: "50%",
             fontSize: 14,
-            padding: "2px 5px",
+            padding: "1px 5px",
             color: "white",
             fontWeight: 600,
+            width: "1.2rem",
+            height: "1.2rem",
             textAlign: "center",
           }}
         >

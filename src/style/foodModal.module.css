@@ -6,7 +6,6 @@
 }
 .container {
   background-color: var(--color-white);
-  width: 50%;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -32,11 +31,11 @@
   align-items: center;
   margin: 20px 0px;
 }
-.cartBtn {
+.desktop {
   background-color: var(--primary-color);
   color: var(--color-white);
   border: none;
-  padding: 15px 20px;
+  padding: 15px;
   font-size: 14px;
   border-radius: 5px;
   cursor: pointer;
@@ -44,7 +43,7 @@
   font-weight: 600;
   outline: none;
 }
-.cartBtn:hover {
+.desktop:hover {
   background-color: var(--hover-btn);
   transition: transform 0.5s ease;
 }
@@ -56,9 +55,29 @@
   outline: none;
   border-radius: 5px;
   padding: 15px 20px;
+  font-size: 16px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 500;
 }
+.mobile {
+  background-color: var(--primary-color);
+  color: var(--color-white);
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+  outline: none;
+  display: none;
+  width: 80px;
+}
+.mobile:hover {
+  background-color: var(--hover-btn);
+  transition: transform 0.5s ease;
+}
+
 .container::-webkit-scrollbar {
   width: 5px;
 }
@@ -71,4 +90,20 @@
 }
 .container::-webkit-scrollbar-track {
   background-color: #f1f1f1;
+}
+@media (max-width: 768px) {
+  .container {
+    width: 90vw;
+  }
+}
+@media (max-width: 500px) {
+  .container {
+    width: 90vw;
+  }
+  .mobile {
+    display: block;
+  }
+  .desktop {
+    display: none;
+  }
 }

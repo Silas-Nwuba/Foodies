@@ -86,7 +86,7 @@ const App = () => {
 
   return (
     <div className={style.container}>
-      <Header>
+      <Header query={query} setQuery={setQuery}>
         <Logo />
         <Search query={query} setQuery={setQuery} />
         <Menu
@@ -94,6 +94,7 @@ const App = () => {
           itemCount={bookMark !== null ? bookMark.length : 0}
         />
       </Header>
+
       <HeroSection />
       {isOpenBooked && (
         <Booked
