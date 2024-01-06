@@ -6,12 +6,11 @@
   --color-white: #ffff;
   --color-black-think: #162f43;
   --color-black-light: #191919;
-  --box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.05)
+  --box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.05);
   --hover-btn: #fb902a;
 }
 .header {
   background-color: var(--color-white);
-
   width: 100%;
   padding: 10px 20px;
   box-shadow: var(--box-shadow);
@@ -24,7 +23,6 @@
   display: flex;
   width: 100%;
   align-items: center;
-  /* margin:0px 10px; */
   justify-content: space-between;
 }
 
@@ -48,9 +46,6 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  /* position: relative;
-  left: 200px;
-  bottom: 50px; */
 }
 .search input {
   outline: none;
