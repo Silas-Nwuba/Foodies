@@ -1,15 +1,10 @@
-* {
-  -webkit-tab-highlight-color: transparent;
-}
-
 .heroSection {
   margin-top: 0px;
   position: relative;
-  /* text-align: center; */
 }
 .heroSection img {
   width: 100%;
-  min-height: 600px;
+  min-height: 500px;
   max-height: 600px;
   object-fit: cover;
   height: 100%;
@@ -18,7 +13,6 @@
   margin: auto;
   position: absolute;
   top: 40%;
-  /* left: 50%; */
   width: 100%;
   text-align: center;
   transform: translate(-50%, -50%);
@@ -45,16 +39,15 @@
   outline: none;
   border: none;
 }
-
 .content button:hover {
   background-color: #fa7e09;
   transition: 0.5s ease;
   outline: none;
 }
-button:focus {
-  outline: none;
-  box-shadow: transparent;
+.content button:focus {
+  -webkit-tab-highlight-color: transparent !important;
 }
+
 @media (max-width: 768px) {
   .content h1 {
     font-size: 30px;
@@ -72,11 +65,14 @@ button:focus {
   }
   .content h1 {
     line-height: 1.4;
+    font-size: 30px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
   }
   .content p {
     font-size: 18px;
   }
   .content button {
-    width: 180px;
+    width: 200px;
   }
 }

@@ -1,3 +1,7 @@
+*:focus {
+  -webkit-tab-hightlight-color: transparent;
+}
+
 :root {
   --color-black-think: #162f43;
   --color-black-lighter: #3c3d3d;
@@ -5,15 +9,23 @@
   --color-white: #ffff;
   --primary-color: #ff922b;
 }
+input,
+textarea,
+div,
+button,
+section:focus {
+  -webkit-tab-hightlight-color: transparent;
+}
+
 .foodList {
   width: 22.7%;
   background-color: var(--color-white);
   cursor: pointer;
   border-radius: 5px;
+  outline: none;
 }
 .foodList img {
   width: 100%;
-  background-size: cover;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
 }
@@ -22,6 +34,9 @@
   color: var(--color-black-lighter);
   font-size: 0.9375rem;
   font-weight: 400;
+}
+.foodList:focus {
+  -webkit-tab-highlight-color: transparent;
 }
 .price {
   color: rgb(151, 2, 2);

@@ -58,6 +58,7 @@
 }
 .search input::placeholder {
   font-size: 14px;
+  color: #101010;
 }
 .search button {
   border-top-right-radius: 5px;
@@ -168,6 +169,6 @@
     width: 40px;
   }
   .logo h1 {
-    font-size: 18px;
+    font-size: 20px;
   }
 }

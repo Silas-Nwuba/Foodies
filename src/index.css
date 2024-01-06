@@ -3,7 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+*:focus {
+  -webkit-tab-hightlight-color: transparent;
+}
 body {
   font-family: "Roboto", sans-serif;
   overflow-x: hidden;
@@ -15,9 +17,4 @@ input:-webkit-autofill-hover,
 input:-webkit-autofill-focus,
 input:-webkit-autofill-active {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
-}
-button:active,
-button:visited,
-button:focus {
-  outline: none;
 }

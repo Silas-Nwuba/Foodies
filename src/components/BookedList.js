@@ -18,7 +18,7 @@ const BookedList = ({ item, onDelete, onBookedDetail }) => {
       </span>
       <FaTimes
         onClick={() => onDelete(idMeal)}
-        style={{ color: "rgb(151, 2, 2)", fontSize: 12, cursor: "pointer" }}
+        style={{ color: "rgb(151, 2, 2)", fontSize: 16, cursor: "pointer" }}
       />
     </div>
   );

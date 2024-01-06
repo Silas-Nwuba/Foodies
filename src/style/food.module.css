@@ -8,6 +8,7 @@
   margin-bottom: 40px;
   width: 90%;
 }
+
 @media (max-width: 768px) {
   .food {
     justify-content: center;

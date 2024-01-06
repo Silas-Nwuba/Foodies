@@ -7,7 +7,7 @@ const FoodMenu = () => {
         style={{
           textAlign: "center",
           margin: "40px auto auto",
-          fontSize: "1.4rem",
+          fontSize: "1.5rem",
         }}
       >
         Food Category
