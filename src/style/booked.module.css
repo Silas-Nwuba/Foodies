@@ -9,7 +9,7 @@
   background-color: var(--color-white);
   box-shadow: var(--box-shadow);
   padding: 20px 15px;
-  max-width: 400px;
+  width: 400px;
   height: 100%;
   right: -400px;
   top: 0;
