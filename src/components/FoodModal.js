@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import style from "../style/foodModal.module.css";
-import { FaTimes, FaBookmark } from "react-icons/fa";
-import { Bookmark } from "react-bootstrap-icons";
+import { FaBookmark } from "react-icons/fa";
 
 const FoodModal = ({
   closeFoodModal,
