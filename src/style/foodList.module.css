@@ -23,6 +23,7 @@ section:focus {
   cursor: pointer;
   border-radius: 5px;
   outline: none;
+  box-shadow: var(--box-shadow);
 }
 .foodList img {
   width: 100%;

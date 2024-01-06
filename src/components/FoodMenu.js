@@ -6,7 +6,7 @@ const FoodMenu = () => {
       <h2
         style={{
           textAlign: "center",
-          margin: "40px auto auto",
+          margin: "50px auto auto",
           fontSize: "1.5rem",
         }}
       >

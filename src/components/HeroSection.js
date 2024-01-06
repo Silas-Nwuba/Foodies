@@ -10,14 +10,17 @@ const HeroSection = () => {
 
   return (
     <div className={style.heroSection}>
-      <img src="/image/pexels-rajesh-tp-1600727.jpg" alt="background" />
+      <img src="/image/background.jpg" alt="background" />
 
       <div
         className={style.content}
         data-aos="fade-up"
         data-aos-duration="3000"
       >
-        <h1>Discover Simple,Delicious, And Reliable Food Recipe</h1>
+        <h1>
+          Discover Simple,Delicious, And Reliable Food{" "}
+          <span style={{ color: "#ff922b" }}> Recipe</span>
+        </h1>
         <p>
           Home of all kinds of delicious food we are available anytime to serve
           our esteem customer.
