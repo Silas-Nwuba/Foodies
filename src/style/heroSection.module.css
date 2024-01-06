@@ -1,3 +1,7 @@
+* {
+  -webkit-tab-highlight-color: transparent;
+}
+
 .heroSection {
   margin-top: 0px;
   position: relative;
@@ -5,10 +9,10 @@
 }
 .heroSection img {
   width: 100%;
-  min-height: 500px;
+  min-height: 600px;
   max-height: 600px;
   object-fit: cover;
-  height: auto;
+  height: 100%;
 }
 .content {
   margin: auto;
@@ -35,20 +39,21 @@
   font-size: 16px;
   width: 250px;
   font-weight: 600;
-  border: 2px solid #ff922b;
   border-radius: 50px;
   cursor: pointer;
   margin-top: 20px;
   outline: none;
+  border: none;
 }
-.content button:focus,
-.content button:active,
-.content button:visited {
+
+.content button:hover {
+  background-color: #fa7e09;
+  transition: 0.5s ease;
   outline: none;
 }
-.content button:hover {
-  background-color: #ff922b;
-  transition: 0.5s ease;
+button:focus {
+  outline: none;
+  box-shadow: transparent;
 }
 @media (max-width: 768px) {
   .content h1 {

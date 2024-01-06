@@ -10,7 +10,7 @@ const HeroSection = () => {
 
   return (
     <div className={style.heroSection}>
-      <img src="../image/pexels-rajesh-tp-1600727.jpg" alt="background" />
+      <img src="/image/pexels-rajesh-tp-1600727.jpg" alt="background" />
 
       <div
         className={style.content}
