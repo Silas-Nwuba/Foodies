@@ -80,7 +80,6 @@
   align-items: center;
   cursor: pointer;
   margin-right: 20px;
-  /* float: right; */
 }
 .contactInfo {
   display: flex;
@@ -111,10 +110,19 @@
   display: none;
 }
 
-/* desktop-view */
+/* tablet-view */
 @media (max-width: 768px) {
   .header {
     padding: 10px;
+  }
+  .logo {
+    margin: 0px;
+  }
+  .logo img {
+    width: 40px;
+  }
+  .logo h1 {
+    font-size: 20px;
   }
   .search {
     display: none;
