@@ -7,6 +7,8 @@ const FoodModal = ({
   selectedFood,
   errorMessage,
   onBookMark,
+
+  onTest,
 }) => {
   useEffect(() => {
     if (selectedFood.strMeal === null) return;
@@ -56,21 +58,23 @@ const FoodModal = ({
               </div>
 
               <span className={style.footer}>
-                <button
-                  className={style.mobile}
-                  onClick={() => onBookMark(selectedFood)}
-                >
-                  <FaBookmark style={{ fontSize: 25, color: "white" }} />
-                </button>
-                <button
-                  className={style.desktop}
-                  onClick={() => onBookMark(selectedFood)}
-                >
-                  Add To Bookmark
-                </button>
-                {/* <button className={style.close} onClick={closeFoodModal}>
-                    Close
-                  </button> */}
+                {!onTest && (
+                  <button
+                    className={style.mobile}
+                    onClick={() => onBookMark(selectedFood)}
+                  >
+                    <FaBookmark style={{ fontSize: 25, color: "white" }} />
+                  </button>
+                )}
+
+                {!onTest && (
+                  <button
+                    className={style.desktop}
+                    onClick={() => onBookMark(selectedFood)}
+                  >
+                    Add To Bookmark
+                  </button>
+                )}
               </span>
             </div>
           </div>

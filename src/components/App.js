@@ -26,15 +26,15 @@ const App = () => {
   const [isFoodModalOpen, setFoodModalOpen] = useState(false);
   const [isOpenBooked, setOpenBooked] = useState(false);
   const [selectedFood, setSelectedFood] = useState(null);
-  const [isBookedDetail, setBookedDetail] = useState(false);
-  const [query, setQuery] = useState("");
+  const [bookedDetail, setBookedDetail] = useState(false);
+  const [test, setTest] = useState(false);
 
+  const [query, setQuery] = useState("");
   const handleOpenFoodModal = (id) => {
     const selectedFoodObj = food.find((item) => item.idMeal === id);
     setSelectedFood(selectedFoodObj);
     setFoodModalOpen((isOpen) => !isOpen);
   };
-
   const handleCloseFoodModal = () => {
     setFoodModalOpen((isOpen) => !isOpen);
     setBookedDetail(false);
@@ -56,7 +56,6 @@ const App = () => {
       });
     }
   };
-
   const handleOpenBooked = () => {
     setOpenBooked(true);
   };
@@ -72,7 +71,7 @@ const App = () => {
     const detail = bookMark.find((item) => item.idMeal === id);
     setSelectedFood(detail);
     setFoodModalOpen(true);
-    setBookedDetail(true);
+    setTest(true);
   };
 
   const handleDeleteAll = () => {
@@ -151,7 +150,8 @@ const App = () => {
           selectedFood={selectedFood}
           onBookMark={handleAddBookMark}
           errorMessage={errorMessage}
-          onClickBooked={isBookedDetail}
+          onClickBooked={bookedDetail}
+          onTest={test}
         />
       )}
       {isFoodModalOpen && (
