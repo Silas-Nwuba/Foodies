@@ -21,15 +21,14 @@ import HeroSection from "./HeroSection";
 import { useFetch } from "../customHook/useFetch";
 import { useLocalStorage } from "../customHook/useLocalStorage";
 import { useKey } from "../customHook/useKey";
-
 const App = () => {
   const local_key = "bookedFood";
   const [isFoodModalOpen, setFoodModalOpen] = useState(false);
   const [isOpenBooked, setOpenBooked] = useState(false);
   const [selectedFood, setSelectedFood] = useState(null);
+  const [isBookedDetail, setBookedDetail] = useState(false);
   const [query, setQuery] = useState("");
 
-  const [isBookedDetail, setBookedDetail] = useState(false);
   const handleOpenFoodModal = (id) => {
     const selectedFoodObj = food.find((item) => item.idMeal === id);
     setSelectedFood(selectedFoodObj);
@@ -88,7 +87,7 @@ const App = () => {
     <div className={style.container}>
       <Header query={query} setQuery={setQuery}>
         <Logo />
-        <Search query={query} setQuery={setQuery} />
+        <Search Query={query} setQuery={setQuery} />
         <Menu
           onClickBookMark={handleOpenBooked}
           itemCount={bookMark !== null ? bookMark.length : 0}
@@ -144,6 +143,7 @@ const App = () => {
         )}
         {errorMessage && <ErrorMessage message={errorMessage} />}
       </Main>
+
       <Footer />
       {isFoodModalOpen && (
         <FoodModal

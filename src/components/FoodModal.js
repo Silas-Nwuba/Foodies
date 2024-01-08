@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
 import style from "../style/foodModal.module.css";
-import { FaBookmark } from "react-icons/fa";
+import { FaBookmark, FaTimes } from "react-icons/fa";
 
 const FoodModal = ({
   closeFoodModal,
   selectedFood,
   errorMessage,
   onBookMark,
-  onClickBooked,
 }) => {
   useEffect(() => {
     if (selectedFood.strMeal === null) return;
@@ -16,30 +15,46 @@ const FoodModal = ({
       document.title = "Foodies";
     };
   }, [selectedFood.strMeal]);
+  useEffect(() => {
+    function handleScroll() {
+      const yOfSet = window.pageYOffset;
+      if (yOfSet > 0) {
+        closeFoodModal();
+      }
+    }
+    window.addEventListener("scroll", handleScroll);
 
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [closeFoodModal]);
   if (!errorMessage) {
     return (
-      <div className={style.container}>
-        <div className={style.product}>
-          <img
-            src={`${selectedFood.strMealThumb}`}
-            alt={selectedFood.strMeals}
-          />
-          <div className={style.foodContent}>
-            <div>
-              <h3>{selectedFood.strMeal}</h3>
-              <p> Category - {selectedFood.strCategory} </p>
-              <p
-                style={{
-                  textAlign: "justify",
-                  lineHeight: 1.8,
-                  fontSize: 16,
-                }}
-              >
-                Instructions - {selectedFood.strInstructions}
-              </p>
-            </div>
-            {!onClickBooked ? (
+      <>
+        <div className={style.container}>
+          <div className={style.closeIcon} onClick={closeFoodModal}>
+            <FaTimes style={{ color: "white", fontSize: 20, float: "right" }} />
+          </div>
+          <div className={style.product}>
+            <img
+              src={`${selectedFood.strMealThumb}`}
+              alt={selectedFood.strMeals}
+            />
+            <div className={style.foodContent}>
+              <div>
+                <h3>{selectedFood.strMeal}</h3>
+                <p> Category - {selectedFood.strCategory} </p>
+                <p
+                  style={{
+                    textAlign: "justify",
+                    lineHeight: 1.8,
+                    fontSize: 16,
+                  }}
+                >
+                  Instructions - {selectedFood.strInstructions}
+                </p>
+              </div>
+
               <span className={style.footer}>
                 <button
                   className={style.mobile}
@@ -53,18 +68,14 @@ const FoodModal = ({
                 >
                   Add To Bookmark
                 </button>
-                <button className={style.close} onClick={closeFoodModal}>
-                  Close
-                </button>
+                {/* <button className={style.close} onClick={closeFoodModal}>
+                    Close
+                  </button> */}
               </span>
-            ) : (
-              <button className={style.close} onClick={closeFoodModal}>
-                Close
-              </button>
-            )}
+            </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 };

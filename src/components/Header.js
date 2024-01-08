@@ -1,7 +1,7 @@
 import React from "react";
 import style from "../style/header.module.css";
 import MobileSearch from "./MobileSearch";
-const Header = ({ children, query, setQuery }) => {
+const Header = ({ query, setQuery, children }) => {
   return (
     <header className={style.header}>
       <div className={style.headerContent}>{children}</div>

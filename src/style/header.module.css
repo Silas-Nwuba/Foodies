@@ -30,7 +30,7 @@
   align-items: center;
   gap: 5px;
   cursor: pointer;
-  margin: 0px 10px;
+  margin: 0px 20px;
 }
 .logo img {
   width: 50px;
@@ -48,9 +48,10 @@
 }
 .search input {
   outline: none;
-  width: 85%;
+  width: 80%;
   padding: 15.2px 15px;
-  border: 1px solid var(--grey-color);
+  background-color: #eee;
+  border: none;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   font-size: 14px;

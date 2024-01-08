@@ -18,8 +18,9 @@ const Footer = () => {
         }}
       >
         {" "}
-        <FaRegCopyright style={{ fontSize: 12 }} /> 2023 EbukaCoder All Right
-        Reserved.
+        <FaRegCopyright
+          style={{ fontSize: 12 }}
+        /> {new Date().getFullYear()} EbukaCoder All Right Reserved.
       </p>
     </footer>
   );
