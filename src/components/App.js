@@ -38,6 +38,7 @@ const App = () => {
   const handleCloseFoodModal = () => {
     setFoodModalOpen((isOpen) => !isOpen);
     setBookedDetail(false);
+    setTest(false);
   };
   const handleAddBookMark = (newBookedItem) => {
     const bookedItem = bookMark.find(

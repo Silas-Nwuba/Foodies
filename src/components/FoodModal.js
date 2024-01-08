@@ -7,9 +7,9 @@ const FoodModal = ({
   selectedFood,
   errorMessage,
   onBookMark,
-
   onTest,
 }) => {
+  console.log(onTest);
   useEffect(() => {
     if (selectedFood.strMeal === null) return;
     document.title = `Foodies | ${selectedFood.strMeal}`;

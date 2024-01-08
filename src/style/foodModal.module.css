@@ -17,6 +17,7 @@
 }
 .container {
   margin-bottom: 1000px;
+  z-index: 20000;
 }
 .product {
   background-color: var(--color-white);
