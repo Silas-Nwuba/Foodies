@@ -30,6 +30,9 @@
   border-bottom: 1px solid #cccc;
   padding-bottom: 10px;
 }
+.header p {
+  font-size: 16px;
+}
 .header p:hover {
   color: rgb(151, 2, 2);
 }
@@ -104,7 +107,7 @@ h1 {
 @media (max-width: 480px) {
   .booked {
     width: 100%;
-    height: 100vh;
+    height: 100%;
   }
   .bookedContainer {
     width: 100%;

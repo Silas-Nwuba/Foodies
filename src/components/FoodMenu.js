@@ -7,14 +7,14 @@ const FoodMenu = () => {
         style={{
           textAlign: "center",
           margin: "50px auto auto",
-          fontSize: "1.5rem",
+          fontSize: "1.56rem",
         }}
       >
         Food Category
       </h2>
       <div
         style={{
-          borderBottom: "4px solid #ff922b",
+          borderBottom: "5px solid #ff922b",
           width: 50,
           margin: "10px auto",
         }}
