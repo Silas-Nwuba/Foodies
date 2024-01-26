@@ -62,7 +62,6 @@ const HomePage = ({ bookedItem, setBookedItem }) => {
     setBookedItem([]);
     dispatch({ type: "deleteAllItem" });
   };
-
   useEffect(() => {
     const fetchLatestRecipe = async () => {
       setLoading(true);
@@ -107,6 +106,19 @@ const HomePage = ({ bookedItem, setBookedItem }) => {
       }
     };
     fetchFeatureRecipe();
+  }, []);
+
+  useEffect(() => {
+    const text = window.scrollTo(0, 0);
+    console.log(text);
+    const handleScroll = () => {
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener("popstate", handleScroll);
+
+    return () => {
+      window.removeEventListener("popstate", handleScroll);
+    };
   }, []);
 
   return (

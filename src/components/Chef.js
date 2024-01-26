@@ -8,15 +8,18 @@ export const Chef = () => {
         <h1> Our Top Chef</h1>
         <div className={style.content}>
           <div className={style.item}>
-            <img src="/image/images (27).jpeg" alt="chef" />
+            <img src="/image/female-chef.jpg.370x370_q85.jpg" alt="chef" />
             <h2>Chef Sophia</h2>
           </div>
           <div className={style.item}>
-            <img src="/image/images (28).jpeg" alt="chef" />
+            <img
+              src="/image/360_F_635201516_G2TFpFPoFA6utXYNgFlgPJGwU24mj6CJ.jpg"
+              alt="chef"
+            />
             <h2>Chef Jane</h2>
           </div>
           <div className={style.item}>
-            <img src="/image/images (26).jpeg" alt="chef" />
+            <img src="/image/male-chef.jpg" alt="chef" />
             <h2>Chef Smith</h2>
           </div>
           <div className={style.item}>
