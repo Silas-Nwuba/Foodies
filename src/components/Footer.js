@@ -4,7 +4,6 @@ const Footer = () => {
   return (
     <footer
       style={{
-        backgroundColor: "rgb(233 228 228)",
         padding: "4px",
         marginTop: "auto",
       }}
@@ -13,14 +12,11 @@ const Footer = () => {
         style={{
           marginLeft: "20px",
           fontSize: "14px",
-          color: "#191919",
           marginTop: "20px",
         }}
       >
-        {" "}
-        <FaRegCopyright
-          style={{ fontSize: 12 }}
-        /> {new Date().getFullYear()} EbukaCoder All Right Reserved.
+        <FaRegCopyright style={{ fontSize: 12 }} /> {new Date().getFullYear()}{" "}
+        EbukaCoder All Right Reserved.
       </p>
     </footer>
   );
