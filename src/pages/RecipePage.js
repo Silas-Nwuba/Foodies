@@ -5,7 +5,6 @@ import Menu from "../components/Menu";
 import Search from "../components/Search";
 import style from "../style/RecipePage.module.css";
 import Footer from "../components/Footer";
-import "../index.css";
 import RecipeDetail from "../components/RecipeDetail";
 import Booked from "../components/Booked";
 import BookedList from "../components/BookedList";
