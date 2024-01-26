@@ -12,7 +12,12 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<HomePage bookedItem={bookedItem} />}></Route>
+        <Route
+          index
+          element={
+            <HomePage bookedItem={bookedItem} setBookedItem={setBookedItem} />
+          }
+        ></Route>
         <Route
           path="recipe/:idMeal"
           element={

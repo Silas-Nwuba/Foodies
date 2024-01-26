@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const FeaturedRecipeList = ({ id, item }) => {
   const { idMeal, strMeal, strMealThumb, strCategory } = item;
   const rating = Math.floor(idMeal / 1000 + id);
-
   return (
     <Link to={`recipe/${idMeal}`} className={style.recipelist}>
       <img src={`${strMealThumb}`} alt={strMeal} />
