@@ -1,0 +1,22 @@
+:root {
+  --color-black-think: #162f43;
+  --color-black-lighter: #191919;
+}
+.about {
+  text-align: center;
+  margin-top: 180px;
+  padding: 20px 0px;
+}
+.about h1 {
+  font-size: 24px;
+  color: var(--color-black-think);
+  text-transform: uppercase;
+  font-family: sans-serif;
+}
+
+.about p {
+  color: var(--color-black-lighter);
+  font-size: 16px;
+  line-height: 3;
+  text-align: center;
+}

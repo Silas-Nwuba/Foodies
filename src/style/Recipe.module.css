@@ -1,0 +1,30 @@
+.container {
+  margin: 10px auto 0px auto;
+  width: 90%;
+}
+.recipe {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 70px;
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .recipe {
+    justify-content: center;
+    width: 100%;
+    margin: 20px auto;
+  }
+}
+@media (max-width: 500px) {
+  .container {
+    width: 90%;
+  }
+  .recipe {
+    justify-content: center;
+    width: 100%;
+  }
+}

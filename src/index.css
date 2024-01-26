@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  -webkit-tap-hightlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #f1eeee;
+  min-height: 100vh;
+}
+input:-webkit-autofill,
+input:-webkit-autofill-hover,
+input:-webkit-autofill-focus,
+input:-webkit-autofill-active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+input,
+textarea,
+button,
+select,
+div,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a:focus,
+a:visited,
+a:active {
+  outline: none;
+}
+.pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 30px;
+  gap: 40px;
+  cursor: pointer;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 70px;
+  width: 30%;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  border-radius: 5px;
+}
+.pagination .active {
+  background-color: #ff922b;
+  width: 2rem;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+.pagination .previous,
+.next {
+  display: block;
+}
+.pagination li:not(.active, .previous, .next) {
+  display: none;
+}
+@media (max-width: 500px) {
+  .pagination {
+    width: 100%;
+  }
+}

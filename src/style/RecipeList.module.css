@@ -1,0 +1,57 @@
+*:focus {
+  -webkit-tab-hightlight-color: transparent;
+}
+
+:root {
+  --color-black-think: #162f43;
+  --color-black-lighter: #3c3d3d;
+  --box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  --color-white: #ffff;
+  --primary-color: #ff922b;
+}
+input,
+textarea,
+div,
+button,
+section:focus {
+  -webkit-tab-hightlight-color: transparent;
+}
+
+.recipelist {
+  width: 31%;
+  background-color: var(--color-white);
+  cursor: pointer;
+  border-radius: 10px;
+  outline: none;
+  margin-top: 20px;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 1px 1px;
+}
+.recipelist h2 {
+  color: var(--color-black-lighter);
+}
+.recipelist img {
+  width: 100%;
+  height: 250px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.recipelist h3 {
+  color: var(--color-black-lighter);
+  font-size: 0.9375rem;
+  font-weight: 400;
+}
+
+@media (max-width: 990px) {
+  .recipelist {
+    width: 30%;
+  }
+}
+
+@media (max-width: 768px) {
+  .recipelist {
+    width: 100%;
+  }
+}

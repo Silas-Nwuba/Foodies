@@ -1,0 +1,99 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.content {
+  background-color: white;
+  width: 60%;
+  margin: 100px auto;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+.content img {
+  width: 100%;
+  height: 450px;
+}
+.title {
+  margin: 30px;
+}
+.title h1 {
+  margin-bottom: 5px;
+  font-size: 24px;
+  color: #101010;
+}
+.main {
+  margin-top: 30px;
+}
+.recipeDetailContent {
+  margin: 20px 40px;
+}
+.bookmark {
+  background-color: #ff922b;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.description h3 {
+  color: #101010;
+  font-size: 18px;
+  margin-top: 20px;
+}
+.description p {
+  margin-top: 10px;
+  text-align: justify;
+  font-size: 1rem;
+  line-height: 2.1rem;
+}
+.prescription {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 23px;
+  gap: 90px;
+}
+.prescription h3 {
+  color: #101010;
+  font-size: 16px;
+}
+.ingredient ul {
+  list-style: none;
+  margin-top: 10px;
+}
+.ingredient ul li {
+  padding: 10px 0px;
+  font-size: 16px;
+  color: #101010;
+}
+.measurement ul {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.measurement ul li {
+  padding: 10px 0px;
+  font-size: 16px;
+  color: #101010;
+}
+@media (max-width: 768px) {
+  .content {
+    width: 100%;
+  }
+
+  .content img {
+    height: auto;
+  }
+}
+@media (max-width: 480px) {
+  .recipeDetailContent {
+    margin: 20px 20px;
+  }
+}
+@media (max-width: 360px) {
+  .prescription {
+    gap: 30px;
+  }
+}

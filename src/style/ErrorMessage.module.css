@@ -1,0 +1,30 @@
+:root {
+  --color-black-think: #162f43;
+  --color-black-lighter: #333333;
+  --color-white: #ffff;
+  --box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.12);
+}
+.container {
+  background-color: var(--color-white);
+  padding: 40px 30px;
+  margin: 70px auto 100px auto;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+}
+h1 {
+  color: var(--color-black-think);
+  font-size: 20px;
+}
+.container p {
+  color: var(--color-black-lighter);
+  margin: 10px 0px;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+  }
+}

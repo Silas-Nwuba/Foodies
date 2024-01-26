@@ -1,0 +1,125 @@
+:root {
+  --color-white: #ffff;
+  --primary-color: #ff922b;
+  --quantity-border-color: #eeee;
+  --hover-btn: #fa7e09;
+}
+.closeIcon {
+  position: fixed;
+  float: left;
+  top: 13%;
+  left: 50%;
+  cursor: pointer;
+  z-index: 20000;
+  width: 60vw;
+  background-color: transparent;
+  transform: translate(-50%, -50%);
+}
+.container {
+  margin-bottom: 1000px;
+  z-index: 20000;
+}
+.product {
+  background-color: var(--color-white);
+  transform: translate(-50%, -50%);
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  z-index: 20000;
+  border-radius: 10px;
+  overflow: auto;
+  height: 75vh;
+  width: 60vw;
+}
+.product img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+}
+.foodContent {
+  padding: 20px;
+}
+.footer {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin: 20px 0px;
+}
+.desktop {
+  background-color: var(--primary-color);
+  color: var(--color-white);
+  border: none;
+  padding: 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+  outline: none;
+}
+.desktop:hover {
+  background-color: var(--hover-btn);
+  transition: transform 0.5s ease;
+}
+.close {
+  background-color: #eee;
+  color: rgb(151, 2, 2);
+  width: 100px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 15px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.mobile {
+  background-color: var(--primary-color);
+  color: var(--color-white);
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+  outline: none;
+  display: none;
+  width: 80px;
+}
+.mobile:hover {
+  background-color: var(--hover-btn);
+  transition: transform 0.5s ease;
+}
+
+.product::-webkit-scrollbar {
+  width: 5px;
+}
+.product::-webkit-scrollbar-thumb {
+  background-color: #a0a0a0;
+  border-radius: 5px;
+}
+.product::-webkit-scrollbar-thumb:hover {
+  background-color: #a0a0a0;
+}
+.product::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+@media (max-width: 768px) {
+  .product,
+  .closeIcon {
+    width: 90vw;
+  }
+}
+@media (max-width: 500px) {
+  .container {
+    width: 90vw;
+  }
+  .mobile {
+    display: block;
+  }
+  .desktop {
+    display: none;
+  }
+}

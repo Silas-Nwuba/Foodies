@@ -1,0 +1,188 @@
+:root {
+  --primary-color: #ff922b;
+  --secondary-color: rgb(151, 2, 2);
+  --grey-color: #dbdbdb;
+  --search-color: #333;
+  --color-white: #ffff;
+  --color-black-think: #162f43;
+  --color-black-light: #191919;
+  --box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.05);
+  --hover-btn: #fb902a;
+}
+.header {
+  background-color: var(--color-white);
+  width: 100%;
+  padding: 10px 20px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  z-index: 9999;
+  position: sticky;
+  top: 0px;
+}
+.headerContent {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.header a {
+  text-decoration: none;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  margin: 0px 20px;
+}
+.logo img {
+  width: 50px;
+}
+.logo h1 {
+  font-family: sans-serif;
+  font-size: 24px;
+  margin: 0px;
+  color: var(--primary-color);
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.search input {
+  outline: none;
+  width: 80%;
+  padding: 15.2px 15px;
+  background-color: #f9f6f6;
+  border: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-size: 14px;
+}
+.search input::placeholder {
+  font-size: 14px;
+  color: #101010;
+}
+.search button {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 13px 15px 15px 15px;
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  outline: none;
+  cursor: pointer;
+  width: 8%;
+}
+.search button:hover {
+  background-color: var(--hover-btn);
+  transition: 0.5s ease;
+}
+.menu {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 20px;
+}
+.contactInfo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: default;
+  margin-left: 10px;
+}
+.count::before {
+  content: 0;
+  background-color: var(--secondary-color);
+  padding: 2px 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* desktop view*/
+@media (max-width: 1000px) {
+  .contactInfo {
+    display: none !important;
+  }
+  .menu {
+    margin-left: 20px;
+  }
+}
+.searchmobile {
+  display: none;
+}
+
+/* tablet-view */
+@media (max-width: 768px) {
+  .header {
+    padding: 10px;
+  }
+  .logo {
+    margin: 0px;
+  }
+  .logo img {
+    width: 40px;
+  }
+  .logo h1 {
+    font-size: 20px;
+  }
+  .logo a {
+    color: #101010;
+  }
+  .search {
+    display: none;
+  }
+  .searchmobile {
+    display: block;
+  }
+
+  .menu {
+    margin-right: 10px;
+    gap: 20px;
+  }
+  .searchmobile {
+    display: flex;
+    width: 100%;
+    margin: 5px 0px;
+  }
+  .searchmobile input {
+    outline: none;
+    width: 85%;
+    padding: 5px 15px;
+    height: 45px;
+    background-color: #f1eeee;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 14px;
+  }
+  .searchmobile input::placeholder {
+    font-size: 14px;
+    color: black;
+  }
+  .searchmobile button {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 13px 15px 15px 15px;
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    outline: none;
+    cursor: pointer;
+    width: 15%;
+    height: 45px;
+  }
+  .searchmobile button:hover {
+    background-color: var(--hover-btn);
+    transition: 0.5s ease;
+  }
+}
+/* mobile-view */
+/* @media (max-width: 480px) {
+  /* .logo img {
+    width: 40px;
+  } */
+/* .logo h1 {
+    font-size: 20px;
+  } */
+/* } */
