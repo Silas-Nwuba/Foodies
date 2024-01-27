@@ -4,7 +4,6 @@ import Logo from "../components/Logo";
 import Search from "../components/Search";
 import Menu from "../components/Menu";
 import style from "../style/SearchPage.module.css";
-import Footer from "../components/Footer";
 import SearchRecipePage from "../components/SearchRecipePage";
 import Booked from "../components/Booked";
 import BookedList from "../components/BookedList";

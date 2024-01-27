@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Logo from "../components/Logo";
@@ -21,7 +21,6 @@ import { useBooked } from "../context/BookedContext";
 
 const HomePage = () => {
   const { bookedItem, setBookedItem } = useBooked();
-
   const [recentRecipe, setRecentRecipe] = useState([]);
   const [featuredRecipe, setFeatureRecipe] = useState([]);
   const [isLoading, setLoading] = useState(false);
@@ -126,63 +125,63 @@ const HomePage = () => {
 
   return (
     <div className={style.container}>
-      {/* {errorMessage ? (
+      {errorMessage ? (
         <ErrorMessage message="not found" />
-      ) : ( */}
-      <>
-        <Header query={query} setQuery={setQuery}>
-          <Logo />
-          <Search query={query} setQuery={setQuery} />
-          <Menu count={bookedItem} onShowSideMenu={handleShowMenu} />
-        </Header>
+      ) : (
+        <>
+          <Header query={query} setQuery={setQuery}>
+            <Logo />
+            <Search query={query} setQuery={setQuery} />
+            <Menu count={bookedItem} onShowSideMenu={handleShowMenu} />
+          </Header>
 
-        {bookMenu && (
-          <Booked
-            item={bookedItem}
-            onHideSideMenu={handleHideShowMenu}
-            onDeleteAll={handleDeleteAllBookedItem}
-          >
-            {bookedItem.map((bookedItem) => (
-              <BookedList
-                bookedItem={bookedItem}
-                onDelete={handleDeleteBook}
-                key={bookedItem.idMeal}
-                dispatch={dispatch}
-              />
+          {bookMenu && (
+            <Booked
+              item={bookedItem}
+              onHideSideMenu={handleHideShowMenu}
+              onDeleteAll={handleDeleteAllBookedItem}
+            >
+              {bookedItem.map((bookedItem) => (
+                <BookedList
+                  bookedItem={bookedItem}
+                  onDelete={handleDeleteBook}
+                  key={bookedItem.idMeal}
+                  dispatch={dispatch}
+                />
+              ))}
+            </Booked>
+          )}
+          {bookMenu && <Backdrop onHideSideMenu={handleHideShowMenu} />}
+          <HeroSection />
+          <FoodCategory />
+          <LatestRecipe>
+            {isLoading && (
+              <>
+                <SkeletonLoadingSpinner />
+                <SkeletonLoadingSpinner />
+                <SkeletonLoadingSpinner />
+              </>
+            )}
+            {recentRecipe.slice(6, 9).map((item, id) => (
+              <LastestRecipeList item={item} id={id} key={item.idMeal} />
             ))}
-          </Booked>
-        )}
-        {bookMenu && <Backdrop onHideSideMenu={handleHideShowMenu} />}
-        <HeroSection />
-        <FoodCategory />
-        <LatestRecipe>
-          {isLoading && (
-            <>
-              <SkeletonLoadingSpinner />
-              <SkeletonLoadingSpinner />
-              <SkeletonLoadingSpinner />
-            </>
-          )}
-          {recentRecipe.slice(6, 9).map((item, id) => (
-            <LastestRecipeList item={item} id={id} key={item.idMeal} />
-          ))}
-        </LatestRecipe>
-        <FeaturedRecipe>
-          {isLoading && (
-            <>
-              <SkeletonLoadingSpinner />
-              <SkeletonLoadingSpinner />
-              <SkeletonLoadingSpinner />
-            </>
-          )}
-          {featuredRecipe.slice(0, 6).map((item, id) => (
-            <LastestRecipeList item={item} id={id} key={item.idMeal} />
-          ))}
-        </FeaturedRecipe>
-        <NewsLetter />
-        <Chef />
-      </>
-      {/* )} */}
+          </LatestRecipe>
+          <FeaturedRecipe>
+            {isLoading && (
+              <>
+                <SkeletonLoadingSpinner />
+                <SkeletonLoadingSpinner />
+                <SkeletonLoadingSpinner />
+              </>
+            )}
+            {featuredRecipe.slice(0, 6).map((item, id) => (
+              <LastestRecipeList item={item} id={id} key={item.idMeal} />
+            ))}
+          </FeaturedRecipe>
+          <NewsLetter />
+          <Chef />
+        </>
+      )}
 
       <Footer />
     </div>
