@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Logo from "../components/Logo";
@@ -20,54 +20,15 @@ import ErrorMessage from "../components/ErrorMessage";
 import { useBooked } from "../context/BookedContext";
 
 const HomePage = () => {
-  const { bookedItem, setBookedItem } = useBooked();
+  const { bookMenu, setQuery } = useBooked();
   const [recentRecipe, setRecentRecipe] = useState([]);
   const [featuredRecipe, setFeatureRecipe] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const intialState = {
-    bookMenu: false,
-    itemBooked: false,
-  };
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case "openBookMenu":
-        return { ...state, bookMenu: action.payload };
-      case "closeBookMenu":
-        return { ...state, bookMenu: action.payload };
-      case "itemBooked":
-        return { ...state, itemBooked: action.payload };
-      case "deleteBookedItem":
-        return { ...state, bookMenu: action.payload };
-      case "deleteAllItem":
-        return { ...state, bookMenu: action.payload, itemBooked: false };
-      default:
-        throw new Error("unknown");
-    }
-  };
-  const [state, dispatch] = useReducer(reducer, intialState);
-  const { bookMenu } = state;
-  const [query, setQuery] = useState("");
-  const handleShowMenu = () => {
-    dispatch({ type: "openBookMenu", payload: true });
-  };
-  const handleHideShowMenu = () => {
-    dispatch({ type: "closeBookMenu", payload: false });
-  };
-  const handleDeleteBook = (id) => {
-    const booked = bookedItem.filter((item) => item.idMeal !== id);
-    setBookedItem(booked);
-    dispatch({ type: "deleteBookedItem", payload: true });
-  };
-  const handleDeleteAllBookedItem = () => {
-    setBookedItem([]);
-    dispatch({ type: "deleteAllItem" });
-  };
   useEffect(() => {
     const fetchLatestRecipe = async () => {
       setLoading(true);
-
       try {
         const response = await fetch(
           `https://www.themealdb.com/api/json/v1/1/search.php?s=chicken`
@@ -111,8 +72,8 @@ const HomePage = () => {
   }, []);
 
   useEffect(() => {
-    const text = window.scrollTo(0, 0);
-    console.log(text);
+    setQuery("");
+    window.scrollTo(0, 0);
     const handleScroll = () => {
       window.scrollTo(0, 0);
     };
@@ -121,7 +82,7 @@ const HomePage = () => {
     return () => {
       window.removeEventListener("popstate", handleScroll);
     };
-  }, []);
+  });
 
   return (
     <div className={style.container}>
@@ -129,29 +90,18 @@ const HomePage = () => {
         <ErrorMessage message="not found" />
       ) : (
         <>
-          <Header query={query} setQuery={setQuery}>
+          <Header>
             <Logo />
-            <Search query={query} setQuery={setQuery} />
-            <Menu count={bookedItem} onShowSideMenu={handleShowMenu} />
+            <Search />
+            <Menu />
           </Header>
 
           {bookMenu && (
-            <Booked
-              item={bookedItem}
-              onHideSideMenu={handleHideShowMenu}
-              onDeleteAll={handleDeleteAllBookedItem}
-            >
-              {bookedItem.map((bookedItem) => (
-                <BookedList
-                  bookedItem={bookedItem}
-                  onDelete={handleDeleteBook}
-                  key={bookedItem.idMeal}
-                  dispatch={dispatch}
-                />
-              ))}
+            <Booked>
+              <BookedList />
             </Booked>
           )}
-          {bookMenu && <Backdrop onHideSideMenu={handleHideShowMenu} />}
+          {bookMenu && <Backdrop />}
           <HeroSection />
           <FoodCategory />
           <LatestRecipe>

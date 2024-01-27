@@ -3,15 +3,18 @@ import { FaSearch } from "react-icons/fa";
 import style from "../style/Header.module.css";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
-const MobileSearch = ({ query, setQuery }) => {
+import { useBooked } from "../context/BookedContext";
+const MobileSearch = () => {
   const navigate = useNavigate();
   const inputEl = useRef(null);
   const location = useLocation();
-  const { idMeal } = useParams();
+  const { idMeal, name } = useParams();
   const isRecipePage = location.pathname === `/recipe/${idMeal}`;
   const isHomePage = location.pathname === "/";
   const isSearchPage = location.pathname === `/recipe/${idMeal}/search`;
   const isSearch = location.pathname === `/search`;
+  const isCategoryPage = (location.pathname = `/category/${name}`);
+  const { query, setQuery } = useBooked();
 
   const handleSearchFood = (e) => {
     e.preventDefault();
@@ -21,7 +24,11 @@ const MobileSearch = ({ query, setQuery }) => {
     if (isRecipePage) {
       navigate(`/recipe/${idMeal}/search`);
     }
+
     if (isHomePage) {
+      navigate(`/search`);
+    }
+    if (isCategoryPage) {
       navigate(`/search`);
     }
   };

@@ -5,14 +5,9 @@ import { FaHeart, FaStar } from "react-icons/fa";
 import ReactPlayer from "react-player";
 import { toast, ToastContainer } from "react-toastify";
 import { useParams } from "react-router-dom";
+import { useBooked } from "../context/BookedContext";
 
-const RecipeDetailList = ({
-  recipeDetail,
-  itemBooked,
-  dispatch,
-  bookedItem,
-  setBookedItem,
-}) => {
+const RecipeDetailList = ({ recipeDetail }) => {
   const {
     strMeal,
     strCategory,
@@ -39,6 +34,7 @@ const RecipeDetailList = ({
   } = recipeDetail;
 
   const { idMeal } = useParams();
+  const { bookedItem, setBookedItem, dispatch, itemBooked } = useBooked();
 
   const handleAddToBookmark = () => {
     const booked = bookedItem.find(
@@ -72,6 +68,8 @@ const RecipeDetailList = ({
     const booked = bookedItem.find((booked) => booked.idMeal === idMeal);
     if (booked) {
       dispatch({ type: "itemBooked", payload: true });
+    } else {
+      dispatch({ type: "itemBooked", payload: false });
     }
   }, [idMeal, dispatch, bookedItem]);
   return (

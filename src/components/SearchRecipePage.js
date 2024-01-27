@@ -6,7 +6,9 @@ import ErrorMessage from "../components/ErrorMessage";
 import SkeletonLoadingSpinnerRecipe from "../components/SkeletonLoadingSpinnerRecipe";
 
 import ReactPaginate from "react-paginate";
-const SearchRecipePage = ({ query }) => {
+import { useBooked } from "../context/BookedContext";
+const SearchRecipePage = () => {
+  const { query } = useBooked();
   const { searchRecipe, isLoading, errorMessage } = useFetch(query);
   const [currentPage, setCurrentPage] = useState(0);
 

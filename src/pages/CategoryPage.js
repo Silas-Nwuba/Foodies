@@ -1,17 +1,16 @@
+import React, { useEffect } from "react";
 import Header from "../components/Header";
 import Logo from "../components/Logo";
-import Menu from "../components/Menu";
 import Search from "../components/Search";
-import style from "../style/RecipePage.module.css";
+import Menu from "../components/Menu";
 import Footer from "../components/Footer";
-import RecipeDetail from "../components/RecipeDetail";
+import style from "../style/CategoryPage.module.css";
+import Category from "../components/Category";
+import { useBooked } from "../context/BookedContext";
 import Booked from "../components/Booked";
 import BookedList from "../components/BookedList";
 import Backdrop from "../components/Backdrop";
-import { useBooked } from "../context/BookedContext";
-import { useEffect } from "react";
-
-const RecipePage = () => {
+const CategoryPage = () => {
   const { bookMenu, setQuery } = useBooked();
   useEffect(() => {
     setQuery("");
@@ -37,10 +36,10 @@ const RecipePage = () => {
         </Booked>
       )}
       {bookMenu && <Backdrop />}
-      <RecipeDetail />
+      <Category />
       <Footer />
     </div>
   );
 };
 
-export default RecipePage;
+export default CategoryPage;

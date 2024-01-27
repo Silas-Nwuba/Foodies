@@ -1,20 +1,23 @@
 import React, { useEffect, useRef } from "react";
 import style from "../style/Booked.module.css";
 import { ArrowRight } from "react-bootstrap-icons";
+import { useBooked } from "../context/BookedContext";
 
-const Booked = ({ item, children, onHideSideMenu, onDeleteAll }) => {
+const Booked = ({ children }) => {
   const bookedDiv = useRef(null);
+  const { bookedItem, onCloseMenu, onClearAllBookItem } = useBooked();
+
   useEffect(() => {
     bookedDiv.current.style.right = "0px";
   }, []);
 
-  if (item.length === 0)
+  if (bookedItem.length === 0)
     return (
       <div className={style.booked} ref={bookedDiv}>
         <span className={style.header}>
           <h1>Bookmark</h1>
           <span
-            onClick={onHideSideMenu}
+            onClick={onCloseMenu}
             style={{
               display: "flex",
               alignItems: "center",
@@ -51,7 +54,7 @@ const Booked = ({ item, children, onHideSideMenu, onDeleteAll }) => {
       <span className={style.header}>
         <h1>Bookmark</h1>
         <span
-          onClick={onHideSideMenu}
+          onClick={onCloseMenu}
           style={{
             display: "flex",
             alignItems: "center",
@@ -64,7 +67,7 @@ const Booked = ({ item, children, onHideSideMenu, onDeleteAll }) => {
         </span>
       </span>
       <div className={style.bookedContainer}>{children}</div>
-      <button onClick={onDeleteAll}>Clear All</button>
+      <button onClick={onClearAllBookItem}>Clear All</button>
     </div>
   );
 };

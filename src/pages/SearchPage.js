@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useEffect } from "react";
 import Header from "../components/Header";
 import Logo from "../components/Logo";
 import Search from "../components/Search";
@@ -10,70 +10,35 @@ import BookedList from "../components/BookedList";
 import Backdrop from "../components/Backdrop";
 import { useBooked } from "../context/BookedContext";
 
-const intialState = {
-  bookMenu: false,
-  itemBooked: false,
-};
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "openBookMenu":
-      return { ...state, bookMenu: action.payload };
-    case "closeBookMenu":
-      return { ...state, bookMenu: action.payload };
-    case "itemBooked":
-      return { ...state, itemBooked: action.payload };
-    case "deleteBookedItem":
-      return { ...state, bookMenu: action.payload };
-    default:
-      throw new Error("unknown");
-  }
-};
 const SearchPage = () => {
-  const [state, dispatch] = useReducer(reducer, intialState);
-  const { bookMenu } = state;
-  const [query, setQuery] = useState("");
-  const { bookedItem, setBookedItem } = useBooked();
-  const handleShowMenu = () => {
-    dispatch({ type: "openBookMenu", payload: true });
-  };
-  const handleHideShowMenu = () => {
-    dispatch({ type: "closeBookMenu", payload: false });
-  };
+  const { bookMenu, setQuery } = useBooked();
 
-  const handleDeleteBook = (id) => {
-    const booked = bookedItem.filter((item) => item.idMeal !== id);
-    setBookedItem(booked);
-    dispatch({ type: "deleteBookedItem", payload: true });
-  };
-  const handleDeleteAllBookedItem = () => {
-    setBookedItem([]);
-  };
+  useEffect(() => {
+    setQuery("");
+    window.scrollTo(0, 0);
+    const handleScroll = () => {
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener("popstate", handleScroll);
 
+    return () => {
+      window.removeEventListener("popstate", handleScroll);
+    };
+  }, [setQuery]);
   return (
     <div className={style.container}>
-      <Header query={query} setQuery={setQuery}>
+      <Header>
         <Logo />
-        <Search query={query} setQuery={setQuery} />
-        <Menu count={bookedItem} onShowSideMenu={handleShowMenu} />
+        <Search />
+        <Menu />
       </Header>
       {bookMenu && (
-        <Booked
-          item={bookedItem}
-          onHideSideMenu={handleHideShowMenu}
-          onDeleteAll={handleDeleteAllBookedItem}
-        >
-          {bookedItem.map((bookedItem) => (
-            <BookedList
-              bookedItem={bookedItem}
-              onDelete={handleDeleteBook}
-              key={bookedItem.idMeal}
-              dispatch={dispatch}
-            />
-          ))}
+        <Booked>
+          <BookedList />
         </Booked>
       )}
-      {bookMenu && <Backdrop onHideSideMenu={handleHideShowMenu} />}
-      <SearchRecipePage query={query} />
+      {bookMenu && <Backdrop />}
+      <SearchRecipePage />
     </div>
   );
 };

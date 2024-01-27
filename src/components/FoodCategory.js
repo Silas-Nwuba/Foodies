@@ -1,5 +1,6 @@
 import React from "react";
 import style from "../style/FoodCategory.module.css";
+import { Link } from "react-router-dom";
 
 const FoodCategory = () => {
   return (
@@ -11,18 +12,18 @@ const FoodCategory = () => {
       <p>Choose Category</p>
       <h1>Recipe Categories</h1>
       <div className={style.category}>
-        <div className={style.categoryItem}>
+        <Link to="category/Seafood" className={style.categoryItem}>
           <img src="/image/seafood.jpg" alt="seafood" />
           <h2>Seafood</h2>
-        </div>
-        <div className={style.categoryItem}>
+        </Link>
+        <Link to={`category/Vegetarian`} className={style.categoryItem}>
           <img src="/image/vegetarian.jpg" alt="vegetarian" />
           <h2>Vegetarian</h2>
-        </div>
-        <div className={style.categoryItem}>
-          <img src="/image/dessert.jpg" alt="Noo" />
+        </Link>
+        <Link to={`category/Dessert`} className={style.categoryItem}>
+          <img src="/image/dessert.jpg" alt="dessert" />
           <h2>Dessert</h2>
-        </div>
+        </Link>
       </div>
     </div>
   );

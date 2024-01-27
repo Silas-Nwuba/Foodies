@@ -1,8 +1,11 @@
 import React from "react";
 import style from "../style/Header.module.css";
 import { Bookmark, Person, Telephone } from "react-bootstrap-icons";
+import { useBooked } from "../context/BookedContext";
 
-const Menu = ({ onShowSideMenu, count }) => {
+const Menu = () => {
+  const { bookedItem, onShowMenu } = useBooked();
+
   return (
     <div className={style.menu}>
       <>
@@ -18,7 +21,7 @@ const Menu = ({ onShowSideMenu, count }) => {
 
         <Person style={{ fontSize: 25 }} />
       </>
-      <span onClick={onShowSideMenu} style={{ position: "relative" }}>
+      <span onClick={onShowMenu} style={{ position: "relative" }}>
         <Bookmark
           style={{ fontSize: 25, color: "#ff922b" }}
           className={style.count}
@@ -37,7 +40,7 @@ const Menu = ({ onShowSideMenu, count }) => {
             textAlign: "center",
           }}
         >
-          {count.length}
+          {bookedItem.length}
         </p>
       </span>
     </div>

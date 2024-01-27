@@ -4,13 +4,14 @@ import { ArrowLeft } from "react-bootstrap-icons";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 
 const Logo = () => {
-  const { idMeal } = useParams();
+  const { idMeal, name } = useParams();
   const location = useLocation();
   const isRecipePage = location.pathname === `/recipe/${idMeal}`;
   const isSearchPage = location.pathname === `/recipe/${idMeal}/search`;
   const isSearchPageDefault = location.pathname === `/search`;
   const isHomePage = location.pathname === "/";
   const isMobileView = window.innerWidth <= 768;
+  const isCategoryPage = location.pathname === `/category/${name}`;
   const navigate = useNavigate();
   if (
     (!isRecipePage && !isMobileView) ||
@@ -52,6 +53,14 @@ const Logo = () => {
         </div>
       )}
       {isSearchPageDefault && isMobileView && (
+        <div className={style.arrowLeft}>
+          <ArrowLeft
+            style={{ fontSize: 24, fontWeight: "bold", color: "black" }}
+          />
+        </div>
+      )}
+
+      {isCategoryPage && isMobileView && (
         <div className={style.arrowLeft}>
           <ArrowLeft
             style={{ fontSize: 24, fontWeight: "bold", color: "black" }}

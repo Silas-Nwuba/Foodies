@@ -3,8 +3,7 @@ import { useParams } from "react-router-dom";
 import SkeletonLoaderSpinnerRecipe from "./SkeletonLoadingSpinnerRecipe";
 import ErrorMessage from "./ErrorMessage";
 import RecipeDetailList from "./RecipeDetailList";
-
-const RecipeDetail = ({ dispatch, itemBooked, bookedItem, setBookedItem }) => {
+const RecipeDetail = () => {
   const { idMeal } = useParams();
   const [recipeDetail, setRecipeDetail] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -41,10 +40,6 @@ const RecipeDetail = ({ dispatch, itemBooked, bookedItem, setBookedItem }) => {
         recipeDetail.map((recipeDetail) => (
           <RecipeDetailList
             recipeDetail={recipeDetail}
-            itemBooked={itemBooked}
-            dispatch={dispatch}
-            bookedItem={bookedItem}
-            setBookedItem={setBookedItem}
             key={recipeDetail.idMeal}
           />
         ))}

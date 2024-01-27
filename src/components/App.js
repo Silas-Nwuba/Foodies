@@ -6,6 +6,7 @@ import "../index.css";
 import ErrorMessage from "./ErrorMessage";
 import SearchPage from "../pages/SearchPage";
 import { BookedContext } from "../context/BookedContext";
+import CategoryPage from "../pages/CategoryPage";
 const App = () => {
   return (
     <BookedContext>
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="search" element={<SearchPage />}></Route>
 
           <Route path="/recipe/:idMeal/search" element={<SearchPage />}></Route>
+          <Route path="/category/:name" element={<CategoryPage />}></Route>
           <Route
             path="*"
             element={<ErrorMessage message="Not Found" />}
