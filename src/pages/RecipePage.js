@@ -10,6 +10,7 @@ import Booked from "../components/Booked";
 import BookedList from "../components/BookedList";
 import Backdrop from "../components/Backdrop";
 import { useState } from "react";
+import { useBooked } from "../context/BookedContext";
 
 const intialState = {
   bookMenu: false,
@@ -31,10 +32,11 @@ const reducer = (state, action) => {
       throw new Error("unknown");
   }
 };
-const RecipePage = ({ bookedItem, setBookedItem }) => {
+const RecipePage = () => {
   const [state, dispatch] = useReducer(reducer, intialState);
   const { bookMenu, itemBooked } = state;
   const [query, setQuery] = useState("");
+  const { bookedItem, setBookedItem } = useBooked();
   const handleShowMenu = () => {
     dispatch({ type: "openBookMenu", payload: true });
   };

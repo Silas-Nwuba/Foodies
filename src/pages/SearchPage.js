@@ -9,6 +9,7 @@ import SearchRecipePage from "../components/SearchRecipePage";
 import Booked from "../components/Booked";
 import BookedList from "../components/BookedList";
 import Backdrop from "../components/Backdrop";
+import { useBooked } from "../context/BookedContext";
 
 const intialState = {
   bookMenu: false,
@@ -28,11 +29,11 @@ const reducer = (state, action) => {
       throw new Error("unknown");
   }
 };
-const SearchPage = ({ bookedItem, setBookedItem }) => {
+const SearchPage = () => {
   const [state, dispatch] = useReducer(reducer, intialState);
   const { bookMenu } = state;
   const [query, setQuery] = useState("");
-
+  const { bookedItem, setBookedItem } = useBooked();
   const handleShowMenu = () => {
     dispatch({ type: "openBookMenu", payload: true });
   };
@@ -74,7 +75,6 @@ const SearchPage = ({ bookedItem, setBookedItem }) => {
       )}
       {bookMenu && <Backdrop onHideSideMenu={handleHideShowMenu} />}
       <SearchRecipePage query={query} />
-      <Footer />
     </div>
   );
 };

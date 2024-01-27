@@ -4,7 +4,11 @@ import style from "../style/Chef.module.css";
 export const Chef = () => {
   return (
     <>
-      <div className={style.container}>
+      <div
+        className={style.container}
+        data-aos="fade-up"
+        data-aos-duration="3000"
+      >
         <h1> Our Top Chef</h1>
         <div className={style.content}>
           <div className={style.item}>
