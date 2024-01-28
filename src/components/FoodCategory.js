@@ -16,11 +16,11 @@ const FoodCategory = () => {
           <img src="/image/seafood.jpg" alt="seafood" />
           <h2>Seafood</h2>
         </Link>
-        <Link to={`category/Vegetarian`} className={style.categoryItem}>
+        <Link to="category/Vegetarian" className={style.categoryItem}>
           <img src="/image/vegetarian.jpg" alt="vegetarian" />
           <h2>Vegetarian</h2>
         </Link>
-        <Link to={`category/Dessert`} className={style.categoryItem}>
+        <Link to="category/Dessert" className={style.categoryItem}>
           <img src="/image/dessert.jpg" alt="dessert" />
           <h2>Dessert</h2>
         </Link>

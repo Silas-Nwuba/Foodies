@@ -16,7 +16,7 @@ const reducer = (state, action) => {
     case "deleteBookedItem":
       return { ...state, bookMenu: action.payload, itemBooked: false };
     case "deleteAllItem":
-      return { ...state, bookMenu: action.payload, itemBooked: false };
+      return { ...state, bookMenu: true, itemBooked: false };
     default:
       throw new Error("unknown");
   }

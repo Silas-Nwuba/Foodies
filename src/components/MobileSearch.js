@@ -13,7 +13,7 @@ const MobileSearch = () => {
   const isHomePage = location.pathname === "/";
   const isSearchPage = location.pathname === `/recipe/${idMeal}/search`;
   const isSearch = location.pathname === `/search`;
-  const isCategoryPage = (location.pathname = `/category/${name}`);
+  const isCategoryPage = location.pathname === `/category/${name}`;
   const { query, setQuery } = useBooked();
 
   const handleSearchFood = (e) => {

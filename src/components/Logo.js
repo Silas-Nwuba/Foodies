@@ -6,10 +6,13 @@ import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 const Logo = () => {
   const { idMeal, name } = useParams();
   const location = useLocation();
+  console.log(location.pathname);
+  const isHomePage = location.pathname === "/";
   const isRecipePage = location.pathname === `/recipe/${idMeal}`;
   const isSearchPage = location.pathname === `/recipe/${idMeal}/search`;
   const isSearchPageDefault = location.pathname === `/search`;
-  const isHomePage = location.pathname === "/";
+
+  // console.log(isHomePage);
   const isMobileView = window.innerWidth <= 768;
   const isCategoryPage = location.pathname === `/category/${name}`;
   const navigate = useNavigate();
@@ -25,7 +28,6 @@ const Logo = () => {
       </Link>
     );
   }
-
   if (isHomePage) {
     return (
       <Link to="/" className={style.logo}>
@@ -34,7 +36,6 @@ const Logo = () => {
       </Link>
     );
   }
-
   return (
     <div className={style.logo} onClick={() => navigate(-1)}>
       {isRecipePage && isMobileView && (
@@ -66,25 +67,6 @@ const Logo = () => {
             style={{ fontSize: 24, fontWeight: "bold", color: "black" }}
           />
         </div>
-      )}
-
-      {isSearchPageDefault && !isMobileView && (
-        <>
-          <img src="/image/logo.jpeg" alt="logo" />
-          <h1>Foodies</h1>
-        </>
-      )}
-      {isRecipePage && !isMobileView && (
-        <>
-          <img src="/image/logo.jpeg" alt="logo" />
-          <h1>Foodies</h1>
-        </>
-      )}
-      {isSearchPage && !isMobileView && (
-        <>
-          <img src="/image/logo.jpeg" alt="logo" />
-          <h1>Foodies</h1>
-        </>
       )}
     </div>
   );

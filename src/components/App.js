@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import RecipePage from "../pages/RecipePage";
-import "../index.css";
 import ErrorMessage from "./ErrorMessage";
 import SearchPage from "../pages/SearchPage";
 import { BookedContext } from "../context/BookedContext";
@@ -20,9 +19,8 @@ const App = () => {
             ></Route>
           </Route>
           <Route path="search" element={<SearchPage />}></Route>
-
-          <Route path="/recipe/:idMeal/search" element={<SearchPage />}></Route>
-          <Route path="/category/:name" element={<CategoryPage />}></Route>
+          <Route path="recipe/:idMeal/search" element={<SearchPage />}></Route>
+          <Route path="category/:name" element={<CategoryPage />}></Route>
           <Route
             path="*"
             element={<ErrorMessage message="Not Found" />}

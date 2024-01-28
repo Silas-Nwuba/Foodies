@@ -8,11 +8,11 @@ const Search = () => {
   const inputEl = useRef(null);
   const location = useLocation();
   const { idMeal, name } = useParams();
+  const isHomePage = location.pathname === "/";
   const isRecipePage = location.pathname === `/recipe/${idMeal}`;
   const isSearchPage = location.pathname === `/recipe/${idMeal}/search`;
   const isSearch = location.pathname === `/search`;
-  const isHomePage = location.pathname === "/";
-  const isCategoryPage = (location.pathname = `/category/${name}`);
+  const isCategoryPage = location.pathname === `/category/${name}`;
   const { query, setQuery } = useBooked();
 
   const handleSearchFood = (e) => {
