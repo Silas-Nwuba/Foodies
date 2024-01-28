@@ -11,11 +11,10 @@ const Logo = () => {
   const isRecipePage = location.pathname === `/recipe/${idMeal}`;
   const isSearchPage = location.pathname === `/recipe/${idMeal}/search`;
   const isSearchPageDefault = location.pathname === `/search`;
-
-  // console.log(isHomePage);
   const isMobileView = window.innerWidth <= 768;
   const isCategoryPage = location.pathname === `/category/${name}`;
   const navigate = useNavigate();
+
   if (
     (!isRecipePage && !isMobileView) ||
     (!isSearchPage && !isMobileView) ||
