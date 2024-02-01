@@ -44,14 +44,14 @@
 
 /* skeleton-loader-spinner for recipe page */
 .recipeDetailContent {
-  border: 3px solid transparent;
+  border: 5px solid transparent;
   position: fixed;
   top: 50%;
   left: 50%;
   border-top-color: #ff922b;
   border-right-color: #ff922b;
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   animation: spinner 1s linear infinite;
   z-index: 100;
