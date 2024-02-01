@@ -5,6 +5,9 @@
   font-family: "Roboto", sans-serif;
   -webkit-tap-hightlight-color: rgba(0, 0, 0, 0);
 }
+*:focus {
+  outline: none;
+}
 
 body {
   overflow-x: hidden;
@@ -67,4 +70,9 @@ a:active {
   .pagination {
     width: 100%;
   }
+}
+.ToastContainer {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  z-index: 20000;
+  background-color: white;
 }

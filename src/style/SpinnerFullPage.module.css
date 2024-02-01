@@ -1,0 +1,32 @@
+/* skeleton-loader-spinner for recipe page */
+.spinner {
+  border: 4px solid transparent;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border-top-color: #ff922b;
+  border-right-color: #ff922b;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  animation: spinner 1s linear infinite;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+}
+@keyframes spinner {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes skeleton-animation {
+  0% {
+    background: hsl(200, 20%, 70%);
+  }
+  100% {
+    background: hsl(200, 20%, 95%);
+  }
+}
