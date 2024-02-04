@@ -23,7 +23,7 @@
   display: flex;
   gap: 30px;
   flex-wrap: wrap;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   margin-top: 30px;
   cursor: pointer;
 }
@@ -39,11 +39,26 @@
   width: 100%;
   object-fit: cover;
   height: 250px;
+  transition: 0.5s ease;
+}
+.content img:hover {
+  transform: scale(1.1);
 }
 
 @media (max-width: 1062px) {
   .contentItem {
     width: 30%;
+  }
+  .category {
+    width: 100%;
+  }
+}
+@media (max-width: 960px) {
+  .content {
+    justify-content: space-around;
+  }
+  .contentItem {
+    width: 45%;
   }
   .category {
     width: 100%;
