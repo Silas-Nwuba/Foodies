@@ -39,6 +39,7 @@
   width: 100%;
   height: 250px;
   object-fit: cover;
+  transition: 0.5s ease;
 }
 .searchRecipe p {
   color: #101010;
@@ -51,6 +52,9 @@
 .searchRecipe h4 {
   font-size: 1.1rem;
   color: #101010;
+}
+.searchRecipe .recipe img:hover {
+  transform: scale(1.1);
 }
 @media (max-width: 768px) {
   .searchRecipeContent {
