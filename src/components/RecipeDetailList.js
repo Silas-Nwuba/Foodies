@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import style from "../style/RecipePage.module.css";
-import { Heart } from "react-bootstrap-icons";
-import { FaHeart, FaStar } from "react-icons/fa";
 import ReactPlayer from "react-player";
 import { toast, ToastContainer } from "react-toastify";
 import { useParams } from "react-router-dom";
 import { useBooked } from "../context/BookedContext";
-
+import { Heart } from "react-bootstrap-icons";
+import { FaHeart, FaStar } from "react-icons/fa";
 const RecipeDetailList = ({ recipeDetail }) => {
   const {
     strMeal,
@@ -32,10 +31,8 @@ const RecipeDetailList = ({ recipeDetail }) => {
     strMeasure8,
     strYoutube,
   } = recipeDetail;
-
   const { idMeal } = useParams();
   const { bookedItem, setBookedItem, dispatch, itemBooked } = useBooked();
-
   const handleAddToBookmark = () => {
     const booked = bookedItem.find(
       (booked) => booked.idMeal === recipeDetail.idMeal
@@ -159,7 +156,6 @@ const RecipeDetailList = ({ recipeDetail }) => {
                 </ul>
               </div>
             </div>
-
             <ReactPlayer
               url={strYoutube}
               width={"100%"}

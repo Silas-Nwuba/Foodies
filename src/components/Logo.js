@@ -6,7 +6,6 @@ import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 const Logo = () => {
   const { idMeal, name } = useParams();
   const location = useLocation();
-  console.log(location.pathname);
   const isHomePage = location.pathname === "/";
   const isRecipePage = location.pathname === `/recipe/${idMeal}`;
   const isSearchPage = location.pathname === `/recipe/${idMeal}/search`;
@@ -35,6 +34,7 @@ const Logo = () => {
       </Link>
     );
   }
+
   return (
     <div className={style.logo} onClick={() => navigate(-1)}>
       {isRecipePage && isMobileView && (

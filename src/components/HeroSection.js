@@ -10,7 +10,8 @@ const HeroSection = () => {
 
   return (
     <div className={style.heroSection}>
-      <img src="/image/images (30).jpeg" alt="background" />
+      <div className={style.overlay}></div>
+      <img src="/image/seafood.jpg" alt="background" />
 
       <div
         className={style.content}

@@ -27,6 +27,19 @@ const HomePage = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
+    setQuery("");
+    window.scrollTo(0, 0);
+    const handleScroll = () => {
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener("popstate", handleScroll);
+
+    return () => {
+      window.removeEventListener("popstate", handleScroll);
+    };
+  });
+
+  useEffect(() => {
     const fetchLatestRecipe = async () => {
       setLoading(true);
       try {
@@ -70,19 +83,6 @@ const HomePage = () => {
     };
     fetchFeatureRecipe();
   }, []);
-
-  useEffect(() => {
-    setQuery("");
-    window.scrollTo(0, 0);
-    const handleScroll = () => {
-      window.scrollTo(0, 0);
-    };
-    window.addEventListener("popstate", handleScroll);
-
-    return () => {
-      window.removeEventListener("popstate", handleScroll);
-    };
-  });
 
   return (
     <div className={style.container}>
